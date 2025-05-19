@@ -54,6 +54,13 @@ More options:
 usage: pplx [-h] [-m {sonar-pro,mistral-7b-instruct,sonar-small,sonar-medium}] query [query ...]
 
 
+pplx -h
+usage: pplx [-h] [-m {sonar-pro,mistral-7b-instruct,sonar-small,sonar-medium}] query [query ...]
 
+positional arguments:
+  query                 Your search query (no quotes needed)
 
-pplx "What is the time in epoch format?" 
+options:
+  -h, --help            show this help message and exit
+  -m, --model {sonar-pro,mistral-7b-instruct,sonar-small,sonar-medium}
+                        Model to use (default: sonar-pro)
