@@ -1,0 +1,2 @@
+# pplx
+Perplexity cli agent 
