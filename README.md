@@ -10,7 +10,8 @@ A command-line interface for [Perplexity AI](https://www.perplexity.ai/).
 - Query Perplexity AI directly from your terminal
 - Supports multiple models (e.g., sonar-pro, mistral-7b-instruct)
 - Simple, scriptable, and fast
-
+- pplx - supports default models for non-pro perplexity users.
+- pplxpro - supports additional models for perplexity pro users. 
 ---
 
 ## Requirements
@@ -47,8 +48,12 @@ pip install -r requirements.txt
 ### 4. Install the CLI Script
 
 ```bash
-curl -s https://raw.githubusercontent.com/naelmohammad/pplx/main/pplx.py > ~/.local/bin/pplx
+mv pplx > ~/.local/bin/pplx
+mv pplxpro > ~/.local/bin/pplxpro
+
 chmod +x ~/.local/bin/pplx
+chmod +x ~/.local/bin/pplxpro
+
 ```
 
 ### 5. Add to PATH
@@ -92,18 +97,23 @@ Ask a question from your terminal:
 
 ```bash
 pplx "What is the time in epoch format?"
+pplxpro "What is the time in epoch format?"
+
 ```
 
 Specify a model:
 
 ```bash
 pplx -m sonar-pro "Explain Moore's Law"
+pplxpro -m llama-3.1-sonar-small-128k-online "What is the time in epoch format?"
+
 ```
 
 Show help and options:
 
 ```bash
 pplx -h
+pplxpro -h
 ```
 
 ### CLI Options
@@ -119,6 +129,10 @@ options:
   -m, --model           Model to use (default: sonar-pro)
 ```
 
+```
+usage: pplxpro [-h]  [-m {sonar-small-online,sonar-medium-online,sonar-small-chat,sonar-medium-chat,mistral-7b-instruct,llama-3.1-sonar-small-128k-online,llama-3.1-sonar-large-128k-online,sonar-pro,gpt-4-omni,claude-3.5-sonnet,gemini-2.0-flash}] query [query ...]
+
+```
 ---
 
 ## Troubleshooting
