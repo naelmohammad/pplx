@@ -1,4 +1,4 @@
-# pplx
+# pplx & pplxpro
 
 **Perplexity CLI Agent**  
 A command-line interface for [Perplexity AI](https://www.perplexity.ai/).
