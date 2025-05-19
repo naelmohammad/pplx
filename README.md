@@ -47,7 +47,7 @@ pip install -r requirements.txt
 ### 4. Install the CLI Script
 
 ```bash
-curl -s https://raw.githubusercontent.com/naelmohammad/pplx/main/pplx.py > ~/.local/bin/pplx
+mv pplx > ~/.local/bin/pplx
 chmod +x ~/.local/bin/pplx
 ```
 
