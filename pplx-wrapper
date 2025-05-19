@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+# Wrapper script to run the Perplexity CLI Python script without typing python explicitly
+
+# Path to the Python script
+SCRIPT_PATH="$HOME/.local/bin/pplx"
+
+# Run the Python script with all passed arguments
+python3 "$SCRIPT_PATH" "$@"
+

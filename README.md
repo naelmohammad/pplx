@@ -1,66 +1,143 @@
 # pplx
-Perplexity cli agent for use with https://www.perplexity.ai/
 
+**Perplexity CLI Agent**  
+A command-line interface for [Perplexity AI](https://www.perplexity.ai/).
 
+---
 
-How to Install Perplexity CLI on macOS Sequoia
-Requirements:
+## Features
 
-Python 3.6 or later (pre-installed on most modern Macs)
+- Query Perplexity AI directly from your terminal
+- Supports multiple models (e.g., sonar-pro, mistral-7b-instruct)
+- Simple, scriptable, and fast
 
-requests Python library (install with pip install requests)
+---
 
-A Perplexity API key (set as an environment variable)
+## Requirements
 
+- macOS Sequoia (or similar Unix-like system)
+- Python 3.6 or later
+- `git`
+- Perplexity API key
 
-1. Installation Steps:
-Download the CLI Script from Terminal and run:
+---
 
+## Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/naelmohammad/pplx.git
+cd pplx
+```
+
+### 2. (Recommended) Create a Virtual Environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Install the CLI Script
+
+```bash
 curl -s https://raw.githubusercontent.com/naelmohammad/pplx/main/pplx.py > ~/.local/bin/pplx
 chmod +x ~/.local/bin/pplx
+```
 
+### 5. Add to PATH
 
-2. Add to PATH:
-Ensure ~/.local/bin is in your PATH. You can add it by running:
-
+Ensure `~/.local/bin` is in your PATH.  
+For **bash**:
+```bash
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+```
+For **zsh** (default on recent macOS):
+```bash
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
+```
 
-If you use Zsh (the default on recent macOS versions), replace .bashrc with .zshrc.
+### 6. Set Your Perplexity API Key
 
+Generate your API key at: [Perplexity API Docs](https://docs.perplexity.ai/guides/getting-started#generating-an-api-key)
 
-3. Set Your API Key:
-Generate API keys:
-- https://docs.perplexity.ai/guides/getting-started#generating-an-api-key
+Export your API key as an environment variable:
 
-Export your Perplexity API key as an environment variable:
-
+For **bash**:
+```bash
 echo 'export PERPLEXITY_API_KEY="your-api-key"' >> ~/.bashrc
+```
+For **zsh**:
+```bash
+echo 'export PERPLEXITY_API_KEY="your-api-key"' >> ~/.zshrc
+```
 
-(Again, use .zshrc if you use Zsh.)
+Reload your shell configuration:
 
+```bash
+source ~/.bashrc    # or source ~/.zshrc
+```
 
-4. Restart Terminal or run source ~/.bashrc (or source ~/.zshrc) to apply changes.
+---
 
-Usage Example
+## Usage
+
 Ask a question from your terminal:
+
+```bash
 pplx "What is the time in epoch format?"
+```
 
+Specify a model:
 
-You can also use additional options, such as specifying the model or displaying citations:
-
+```bash
 pplx -m sonar-pro "Explain Moore's Law"
+```
 
-More options: 
-usage: pplx [-h] [-m {sonar-pro,mistral-7b-instruct,sonar-small,sonar-medium}] query [query ...]
+Show help and options:
 
-
+```bash
 pplx -h
+```
+
+### CLI Options
+
+```
 usage: pplx [-h] [-m {sonar-pro,mistral-7b-instruct,sonar-small,sonar-medium}] query [query ...]
 
 positional arguments:
   query                 Your search query (no quotes needed)
 
 options:
-  -h, --help            show this help message and exit
-  -m, --model {sonar-pro,mistral-7b-instruct,sonar-small,sonar-medium}
-                        Model to use (default: sonar-pro)
+  -h, --help            Show this help message and exit
+  -m, --model           Model to use (default: sonar-pro)
+```
+
+---
+
+## Troubleshooting
+
+- Ensure your API key is set and your shell is reloaded.
+- Make sure `~/.local/bin` is in your PATH.
+- For issues, open an [issue on GitHub](https://github.com/naelmohammad/pplx/issues).
+
+---
+
+## License
+
+GPL V3 License
+
+---
+
+**Happy querying!**
+
+Citations:
+[1] https://www.perplexity.ai
+[2] https://www.perplexity.ai/
+
