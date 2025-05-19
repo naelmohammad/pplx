@@ -136,8 +136,3 @@ GPL V3 License
 ---
 
 **Happy querying!**
-
-Citations:
-[1] https://www.perplexity.ai
-[2] https://www.perplexity.ai/
-
