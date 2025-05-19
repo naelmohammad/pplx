@@ -12,6 +12,21 @@ A command-line interface for [Perplexity AI](https://www.perplexity.ai/).
 - Simple, scriptable, and fast
 - pplx - supports default models for non-pro perplexity users.
 - pplxpro - supports additional models for perplexity pro users. 
+
+## Supported Models as of 05/19/2025
+
+- sonar-small-online
+- sonar-medium-online
+- sonar-small-chat
+- sonar-medium-chat
+- mistral-7b-instruct
+- llama-3.1-sonar-small-128k-online
+- llama-3.1-sonar-large-128k-online
+- sonar-pro
+- gpt-4-omni
+- claude-3.5-sonnet
+- gemini-2.0-flash
+
 ---
 
 ## Requirements
