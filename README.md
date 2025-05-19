@@ -14,21 +14,19 @@ A Perplexity API key (set as an environment variable)
 
 
 1. Installation Steps:
-
-Download the CLI Script:
-Open Terminal and run:
-
+Download the CLI Script from Terminal and run:
 
 curl -s https://raw.githubusercontent.com/naelmohammad/pplx/main/pplx.py > ~/.local/bin/pplx
 chmod +x ~/.local/bin/pplx
 
+
 2. Add to PATH:
 Ensure ~/.local/bin is in your PATH. You can add it by running:
-
 
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 
 If you use Zsh (the default on recent macOS versions), replace .bashrc with .zshrc.
+
 
 3. Set Your API Key:
 Generate API keys:
@@ -36,13 +34,12 @@ Generate API keys:
 
 Export your Perplexity API key as an environment variable:
 
-
 echo 'export PERPLEXITY_API_KEY="your-api-key"' >> ~/.bashrc
 
 (Again, use .zshrc if you use Zsh.)
 
-4. Restart Terminal or run source ~/.bashrc (or source ~/.zshrc) to apply changes.
 
+4. Restart Terminal or run source ~/.bashrc (or source ~/.zshrc) to apply changes.
 
 Usage Example
 Ask a question from your terminal:
