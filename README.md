@@ -91,11 +91,11 @@ Export your API key as an environment variable:
 
 For **bash**:
 ```bash
-echo 'export PERPLEXITY_API_KEY="your-api-key"' >> ~/.bashrc
+echo 'export PPLX_API_KEY="your-api-key"' >> ~/.bashrc
 ```
 For **zsh**:
 ```bash
-echo 'export PERPLEXITY_API_KEY="your-api-key"' >> ~/.zshrc
+echo 'export PPLX_API_KEY="your-api-key"' >> ~/.zshrc
 ```
 
 Reload your shell configuration:
@@ -111,8 +111,8 @@ source ~/.bashrc    # or source ~/.zshrc
 Ask a question from your terminal:
 
 ```bash
-pplx "What is the time in epoch format?"
-pplxpro "What is the time in epoch format?"
+pplx "What is the purpose of epoch format?"
+pplxpro "What is the purpose of epoch format?"
 
 ```
 
@@ -120,7 +120,7 @@ Specify a model:
 
 ```bash
 pplx -m sonar-pro "Explain Moore's Law"
-pplxpro -m llama-3.1-sonar-small-128k-online "What is the time in epoch format?"
+pplxpro -m llama-3.1-sonar-small-128k-online "What is Moore's Law?"
 
 ```
 
