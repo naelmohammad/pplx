@@ -7,27 +7,22 @@ import requests
 import colorama
 from colorama import Fore, Style
 import argcomplete
+import sys
 
-API_KEY = "Add-Your-API-Keys-Here"
+API_KEY = os.environ.get("PPLX_API_KEY", "")
 API_URL = "https://api.perplexity.ai/chat/completions"
 
+# Updated models for 2025
 MODELS = [
-    "sonar-small-online",
-    "sonar-medium-online",
-    "sonar-small-chat",
-    "sonar-medium-chat",
-    "mistral-7b-instruct",
-    "llama-3.1-sonar-small-128k-online",
-    "llama-3.1-sonar-large-128k-online",
     "sonar-pro",
     "gpt-4-omni",
     "claude-3.5-sonnet",
-    "gemini-2.0-flash"
-
+    "gemini-2.0-flash",
+    "llama-3.1-sonar-small-128k-online",
+    "llama-3.1-sonar-large-128k-online"
 ]
 
-
-def query_perplexity(prompt, model="sonar-medium-online"):
+def query_perplexity(prompt, model="sonar-pro"):
     headers = {
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json"
@@ -41,7 +36,14 @@ def query_perplexity(prompt, model="sonar-medium-online"):
     try:
         response = requests.post(API_URL, json=payload, headers=headers)
         response.raise_for_status()
-        return response.json()["choices"][0]["message"]["content"]
+        data = response.json()
+        # Defensive: check for expected structure
+        if "choices" in data and data["choices"]:
+            return data["choices"][0]["message"]["content"]
+        else:
+            return f"{Fore.RED}Unexpected API response: {data}{Style.RESET_ALL}"
+    except requests.exceptions.HTTPError as e:
+        return f"{Fore.RED}HTTP error: {e.response.text}{Style.RESET_ALL}"
     except Exception as e:
         return f"{Fore.RED}Error: {str(e)}{Style.RESET_ALL}"
 
@@ -50,9 +52,9 @@ def main():
     parser = argparse.ArgumentParser(description="Perplexity CLI agent by naelmohammad at gmail dotcom")
     parser.add_argument(
         "-m", "--model",
-        default="sonar-medium-online",
+        default="sonar-pro",
         choices=MODELS,
-        help="Model to use (default: sonar-medium-online)"
+        help="Model to use (default: sonar-pro)"
     )
     parser.add_argument(
         "query",
@@ -62,6 +64,11 @@ def main():
 
     argcomplete.autocomplete(parser)
     args = parser.parse_args()
+
+    if not API_KEY:
+        print(f"{Fore.RED}Error: PPLX_API_KEY environment variable is not set.{Style.RESET_ALL}")
+        sys.exit(1)
+
     prompt = " ".join(args.query)
     print(Fore.CYAN + Style.BRIGHT + "Querying Perplexity..." + Style.RESET_ALL)
     result = query_perplexity(prompt, args.model)
@@ -69,3 +76,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
