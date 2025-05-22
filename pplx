@@ -10,7 +10,7 @@ import argcomplete
 import sys
 
 API_KEY = os.environ.get("PPLX_API_KEY", "")
-API_URL = "https://api.perplexity.ai/chat/completions"
+API_URL = os.environ.get("PPLX_API_URL", "")
 
 # Updated models for 2025
 MODELS = [
