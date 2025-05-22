@@ -35,7 +35,7 @@ A command-line interface for [Perplexity AI](https://www.perplexity.ai/).
 - Python 3.6 or later
 - `git`
 - Perplexity API key
-
+- Perlexity API URL endpoint
 ---
 
 ## Installation
@@ -92,10 +92,14 @@ Export your API key as an environment variable:
 For **bash**:
 ```bash
 echo 'export PPLX_API_KEY="your-api-key"' >> ~/.bashrc
+echo 'export PPLX_API_URL="your-api-URL-endpoint"' >> ~/.bashrc
+
 ```
 For **zsh**:
 ```bash
 echo 'export PPLX_API_KEY="your-api-key"' >> ~/.zshrc
+echo 'export PPLX_API_URL="your-api-URL-endpoint"' >> ~/.zshrc
+
 ```
 
 Reload your shell configuration:
